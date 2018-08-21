@@ -11,7 +11,7 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Get()
-  @UseGuards(DisableGuard)
+  @UseGuards(DisableGuard) //--> this guard blocks the petition
   findAll(): User[] {
     return this.usersService.findAll();
   }

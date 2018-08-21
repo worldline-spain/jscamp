@@ -31,7 +31,7 @@ export class UsersService {
 
   update(id: string, updateUserDto): User {
     const userId = this.users.findIndex(user => user.id === +id);
-    if (userId <= 0) {
+    if (userId < 0) {
       throw new UserNotFoundException(id);
     }
     this.users[userId] = updateUserDto;
@@ -40,7 +40,7 @@ export class UsersService {
 
   delete(id: string) {
     const userId = this.users.findIndex(user => user.id === +id);
-    if (userId <= 0) {
+    if (userId < 0) {
       throw new UserNotFoundException(id);
     }
     this.users.splice(userId, 1);
